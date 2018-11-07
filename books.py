@@ -14,15 +14,14 @@ class Book:
         y = int(input("Ingrese la catidad de categotias: "))
         for i in range(0,y):
             self.category.append(input("Ingrese la categoria: "))
-        self.publication_date = input("Ingrese la fecha de publicación: ")
+        self.publication_date = input("Ingrese la fecha de publicacion: ")
         self.editor = input("Ingrese la Editorial:")
-        self.description = input("Ingrese la Descripción: ")
+        self.description = input("Ingrese la Descripcion: ")
 
-        with open('books.csv', 'w', newline='') as csvfile:
+        with open('books.csv', 'a', newline='') as csvfile:
             fieldnames = ['id_book', 'title', "sub_title", "author", "category", "publication_date", "editor", "description"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writeheader()
             writer.writerow({'id_book': self.id_book, 'title': self.title, "sub_title": self.sub_title, "author": self.author, "category": self.category, "publication_date": self.publication_date, "editor": self.editor, "description": self.description} )
 
         
